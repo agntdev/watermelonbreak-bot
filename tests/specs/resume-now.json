@@ -1,19 +1,17 @@
 [
   {
-    "name": "/resume_now",
+    "name": "/resume_now resumes from break",
     "steps": [
       {
+        "send": { "text": "/resume_now" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Cancel current break and resume"
+              "text": "Back in action! What would you like to do?"
             }
           }
-        ],
-        "send": {
-          "text": "/resume_now"
-        }
+        ]
       }
     ]
   }

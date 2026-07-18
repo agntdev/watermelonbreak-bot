@@ -1,0 +1,78 @@
+[
+  {
+    "name": "/set_break_interval sets the interval",
+    "steps": [
+      {
+        "send": { "text": "/set_break_interval 30m" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Break interval set to 30 minutes. 🍉"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/set_break_interval rejects too short",
+    "steps": [
+      {
+        "send": { "text": "/set_break_interval 1m" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Minimum interval is 5 minutes — even watermelons need a little break!"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/set_break_interval rejects too long",
+    "steps": [
+      {
+        "send": { "text": "/set_break_interval 10h" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Maximum interval is 8 hours — that's a lot of waiting between breaks!"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/set_break_interval shows usage on bad input",
+    "steps": [
+      {
+        "send": { "text": "/set_break_interval" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Usage: /set_break_interval <number><m|h>\nExamples: 30m, 2h"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Settings button opens settings menu",
+    "steps": [
+      {
+        "send": { "callback": "settings:show" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          { "method": "editMessageText" }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "name": "/do executes a task",
+    "steps": [
+      {
+        "send": { "text": "/do deploy to staging" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "✅ Done: deploy to staging"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "/do without task shows usage",
+    "steps": [
+      {
+        "send": { "text": "/do" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "What would you like to do?\nUsage: /do <task description>"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Execute button shows guidance",
+    "steps": [
+      {
+        "send": { "callback": "do:run" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          { "method": "editMessageText" }
+        ]
+      }
+    ]
+  }
+]

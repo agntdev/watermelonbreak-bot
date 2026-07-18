@@ -1,19 +1,15 @@
 [
   {
-    "name": "Status Check",
+    "name": "Status Check shows break status",
     "steps": [
       {
+        "send": { "callback": "status:check" },
         "expect": [
+          { "method": "answerCallbackQuery" },
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Show current break status and schedule"
-            }
+            "method": "editMessageText"
           }
-        ],
-        "send": {
-          "callback": "status:check"
-        }
+        ]
       }
     ]
   }
