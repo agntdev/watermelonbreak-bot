@@ -1,0 +1,19 @@
+[
+  {
+    "name": "/break_now triggers a break announcement",
+    "steps": [
+      {
+        "send": { "text": "/break_now" },
+        "expect": [
+          { "method": "sendMessage" },
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "🍉 Break triggered!"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

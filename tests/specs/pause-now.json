@@ -1,19 +1,17 @@
 [
   {
-    "name": "/pause_now",
+    "name": "/pause_now triggers a break for the owner",
     "steps": [
       {
+        "send": { "text": "/pause_now" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Immediately trigger a break"
+              "text": "🍉 Break time! Everyone take a breather. Back soon!"
             }
           }
-        ],
-        "send": {
-          "text": "/pause_now"
-        }
+        ]
       }
     ]
   }
