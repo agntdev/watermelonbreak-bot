@@ -1,0 +1,20 @@
+[
+  {
+    "name": "/resume_now",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Cancel current break and resume"
+            }
+          }
+        ],
+        "send": {
+          "text": "/resume_now"
+        }
+      }
+    ]
+  }
+]
